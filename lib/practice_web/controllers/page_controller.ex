@@ -19,7 +19,7 @@ defmodule PracticeWeb.PageController do
   def factor(conn, %{"x" => x}) do
     {tmp, _} = Integer.parse(x)
     y = Practice.factor(tmp)
-    render conn, "factor.html", x: x, y: List.last(y)
+    render conn, "factor.html", x: x, y: y
   end
 
   # TODO: Add an action for palindrome.

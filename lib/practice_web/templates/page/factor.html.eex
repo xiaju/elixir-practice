@@ -3,7 +3,12 @@
     <p><%= link "← go back", to: "/" %></p>
     <h2>Arithmetic Results</h2>
 
-    <p><%= @x %> = <%= @y %></p>
+    <p>x = <%= @x %></p>
+    <p>y = 
+    <%= for item <- @y do %>
+      <%= item %>
+    <% end %>
+    </p>
   </div>
 </div>
 
