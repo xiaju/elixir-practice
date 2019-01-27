@@ -91,33 +91,4 @@ defmodule Practice.Calc do
     g = Enum.reverse(String.split(f, ~r/\s+/))
     hd Enum.reduce(g, [], &stackCalc/2)
   end
-
-  def nextDivisible(num, acc) do
-    cond do
-      acc > :math.sqrt(num) ->
-        -1
-      rem(num, acc) == 0 ->
-        acc
-      true ->
-        nextDivisible(num, acc + 1)
-    end
-  end
-
-  def factor(num) do
-    a = nextDivisible(num, 2)
-    if a == -1 do
-      [num]
-    else
-      factor(a) ++ factor(div(num,  a))
-    end
-  end
-
-  def palindrome?(word) do
-    if String.length(word) <= 1 do
-      true
-    else
-      (String.at(word, 0) == String.at(word, -1)) && palindrome?(String.slice(word, 1..-2))
-    end
-  end
-
 end
